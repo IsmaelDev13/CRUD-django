@@ -87,7 +87,7 @@ def task_detail(request, task_id):
     if request.method == "GET":
         task = get_object_or_404(Task, pk=task_id, user=request.user)
         # print(task_id)
-        form = TaskForm(instant=task)
+        form = TaskForm(instance=task)
         return render(request, "task_detail.html", {"task": task, "form": form})
     else:
         try:
